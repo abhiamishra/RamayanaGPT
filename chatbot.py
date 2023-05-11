@@ -1,4 +1,5 @@
 import streamlit as st
+import openai
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
