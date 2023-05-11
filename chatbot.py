@@ -7,13 +7,15 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.chains import LLMChain
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chains.conversational_retrieval.prompts import CONDENSE_QUESTION_PROMPT
-
+from PIL import Image
 from streamlit_chat import message
 import pinecone
 from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 
 import os
+img = Image.open('image.png')
+st.set_page_config(page_title='RamayanaGPT', page_icon=img)
 # Authenticate with Pinecone using your API key
 pinecone.init(
     api_key=st.secrets["PINECONE_API_KEY"], # find at app.pinecone.io.
@@ -86,6 +88,7 @@ def generate_response(query, chat_history, option="Ram"):
     return [r2, chat_history]
 
 st.title("RamayanaGPT")
+st.image(img)
 
 option = st.selectbox(
          'Which character would you like to use?',
