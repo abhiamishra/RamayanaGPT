@@ -21,9 +21,7 @@ pinecone.init(
 
 QUERY_MODEL_NAME = "text-embedding-ada-002"
 
-openai_embedding = OpenAIEmbeddings(
-    query_model_name = QUERY_MODEL_NAME
-)
+openai_embedding = OpenAIEmbeddings()
 
 
 # Name of the index you want to load embeddings from
